@@ -8,7 +8,7 @@ spec:
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfile: |-
-        def TEMPLATEPATH = 'https://raw.githubusercontent.com/jboss-openshift/application-templates/master/webserver/jws31-tomcat8-basic-s2i.json'
+        def TEMPLATEPATH = 'https://raw.githubusercontent.com/mechevarria/jws-app/master/jws31-tomcat8-basic-s2i.json'
         def TEMPLATENAME = 'jws31-tomcat8-basic-s2i'
         def APPNAME = 'jws-app'
         pipeline {
