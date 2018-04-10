@@ -2,8 +2,8 @@ kind: "BuildConfig"
 apiVersion: "v1"
 metadata:
   labels:
-    name: cicdpipeline-java
-  name: cicdpipeline-java
+    name: pipeline-java
+  name: pipeline-java
 spec:
   strategy:
     jenkinsPipelineStrategy:
@@ -61,14 +61,22 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                stage('test') {
+                stage('build and test') {
                     steps {
                         script {
                             openshift.withCluster() {
                                 openshift.withProject("pipeline-app") {
                                     def builds = openshift.selector("bc", APPNAME).related('builds')
                                     builds.untilEach(1) {
-                                        return (it.object().status.phase == "Complete")
+                                        def status = it.object().status.phase
+                                        echo "Build is ${status}"
+                                        if (status == "Failed") {
+                                            echo "Build failed due to assembly or test error"
+                                            currentBuild.result = 'ABORTED'
+                                            return true
+                                        } else {
+                                            return (status == "Complete")
+                                        }
                                     }
                                 }
                             }
@@ -80,7 +88,12 @@ spec:
                         script {
                             openshift.withCluster() {
                                 openshift.withProject("pipeline-app") {
-                                    echo "All tests passed"
+                                    if ( currentBuild.result == "ABORTED" ) {
+                                        currentBuild.result = 'ABORTED'
+                                        error('Stopping due to build and test error')
+                                    } else {
+                                        echo "All tests passed, verification complete"
+                                    }
                                 }
                             }
                         } // script
