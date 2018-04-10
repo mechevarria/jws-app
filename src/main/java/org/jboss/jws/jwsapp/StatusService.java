@@ -7,7 +7,7 @@ class StatusService {
     static HashMap<String,String> isUp() {
 
         HashMap<String,String> model = new HashMap<>();
-        model.put("status", "The rest api is now up!");
+        model.put("status", "The rest api is now online!");
 
         return model;
 
