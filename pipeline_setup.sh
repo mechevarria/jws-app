@@ -1,7 +1,7 @@
 # Create pipeline demo projects in thie cluster
-oc new-project cicd --display-name="CI/CD"
-oc new-project pipeline-app --display-name="Pipeline Example - Build"
-oc new-project pipeline-app-staging --display-name="Pipeline Example - Staging"
+oc new-project cicd --display-name="Pipeline-1-Jenkins"
+oc new-project pipeline-app --display-name="Pipeline-2-Build"
+oc new-project pipeline-app-staging --display-name="Pipeline-3-Staging"
 
 # Switch to the cicd and create the pipeline build from a template
 oc project cicd
