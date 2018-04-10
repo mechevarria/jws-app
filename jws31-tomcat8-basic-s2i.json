@@ -193,6 +193,10 @@
                             {
                                 "name": "ARTIFACT_DIR",
                                 "value": "${ARTIFACT_DIR}"
+                            },
+                            {
+                                "name": "MAVEN_ARGS",
+                                "value": "-e -Popenshift -Dcom.redhat.xpaas.repo.redhatga package"
                             }
                         ],
                         "forcePull": true,
@@ -311,10 +315,6 @@
                                     {
                                         "name": "JWS_ADMIN_PASSWORD",
                                         "value": "${JWS_ADMIN_PASSWORD}"
-                                    },
-                                    {
-                                        "name": "MAVEN_ARGS",
-                                        "value": "-e -Popenshift -Dcom.redhat.xpaas.repo.redhatga package"
                                     }
                                 ]
                             }
