@@ -61,7 +61,7 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                stage('build') {
+                stage('test') {
                     steps {
                         script {
                             openshift.withCluster() {
@@ -75,12 +75,11 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                stage('test') {
+                stage('verify') {
                     steps {
                         script {
                             openshift.withCluster() {
                                 openshift.withProject("pipeline-app") {
-                                    sh "mvn test"
                                     echo "All tests passed"
                                 }
                             }
