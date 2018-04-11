@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>JWS App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -25,16 +26,27 @@
 
 <!-- Page Content -->
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h1 class="mt-5">Tomcat REST Application</h1>
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div class="pb-2 mt-4 mb-4 border-bottom">
+                <h1>Tomcat REST Application</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-6">
             <p>
                 <button type="button" id="check" class="btn btn-lg btn-primary">Check</button>&nbsp;
                 <button type="button" id="clear" class="btn btn-lg btn-default">Clear</button>
             </p>
-            <p>
-                <pre id="output"></pre>
-            </p>
+        </div>
+        <div class="col-lg-6">
+            <form>
+                <div class="form-group">
+                    <label for="output">REST API Output</label>
+                    <textarea class="form-control" id="output" rows="8" readonly></textarea>
+                </div>
+            </form>
         </div>
     </div>
 </div>

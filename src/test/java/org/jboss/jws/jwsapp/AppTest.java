@@ -13,6 +13,6 @@ public class AppTest {
     public void testRestStatus() {
         HashMap<String, String> response = StatusService.isUp();
 
-        assertEquals("The rest api is now up!", response.get("status"));
+        assertEquals(2, response.size());
     }
 }
