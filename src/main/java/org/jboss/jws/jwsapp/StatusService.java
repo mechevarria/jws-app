@@ -11,7 +11,6 @@ class StatusService {
 
         model.put("status", "The Java REST API is now up!");
         model.put("time", LocalDateTime.now().toString());
-        model.put("name", "Mike E");
 
         return model;
 
