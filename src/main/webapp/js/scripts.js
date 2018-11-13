@@ -1,15 +1,21 @@
-$(document).ready(function () {
-    $('#check').click(function () {
+$(document).ready(() => {
+    $('#check').click(() => {
 
-        $.getJSON('rest/status', function (data) {
+        $.getJSON('rest/status', data => {
             var json = JSON.stringify(data, null, 4);
+
+            var previous = $('#output').val();
+
+            if (previous.length > 0) {
+                json = previous + '\n' + json;
+            }
 
             $('#output').html(json);
         });
 
     });
 
-    $('#clear').click(function () {
+    $('#clear').click(() => {
         $('#output').html('');
     });
 });
