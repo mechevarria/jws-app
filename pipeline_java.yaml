@@ -8,8 +8,10 @@ spec:
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfile: |-
-        def TEMPLATEPATH = 'https://raw.githubusercontent.com/mechevarria/jws-app/master/jws31-tomcat8-basic-s2i.json'
-        def TEMPLATENAME = 'jws31-tomcat8-basic-s2i'
+        def TEMPLATENAME = 'jws50-tomcat9-basic-s2i'
+        def REPO = 'SOURCE_REPOSITORY_URL=https://github.com/mechevarria/jws-app'
+        def REF = 'SOURCE_REPOSITORY_REF=master'
+        def CONTEXT = 'CONTEXT_DIR=/'
         def APPNAME = 'jws-app'
         pipeline {
             agent {
@@ -54,8 +56,8 @@ spec:
                         script {
                             openshift.withCluster() {
                                 openshift.withProject("pipeline-app") {
-                                    // create a new application from the TEMPLATEPATH
-                                    openshift.newApp(TEMPLATEPATH)
+                                    // create a new application from the TEMPLATENAME
+                                    openshift.newApp(TEMPLATENAME, "-p", REPO, "-p", REF, "-p", CONTEXT)
                                 }
                             }
                         } // script
