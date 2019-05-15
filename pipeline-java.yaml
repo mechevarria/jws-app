@@ -12,7 +12,7 @@ spec:
         def REPO = 'SOURCE_REPOSITORY_URL=https://github.com/mechevarria/jws-app'
         def REF = 'SOURCE_REPOSITORY_REF=master'
         def CONTEXT = 'CONTEXT_DIR=/'
-        def MAVEN = 'MAVEN_MIRROR_URL=http://nexus:8081/repository/maven-all-public/'
+        def MAVEN = 'MAVEN_MIRROR_URL=http://nexus:8081/repository/maven-public/'
         def APPNAME = 'jws-app'
         pipeline {
             agent {
