@@ -5,11 +5,11 @@ import java.util.HashMap;
 
 class StatusService {
 
-    static HashMap<String, String> isUp() {
+    static HashMap<String, String> isUp(String name) {
 
         HashMap<String, String> model = new HashMap<>();
 
-        model.put("status", "The Java REST API is now up!");
+        model.put("status", "Welcome " + name);
         model.put("time", LocalDateTime.now().toString());
 
         return model;
