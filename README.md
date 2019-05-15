@@ -1,4 +1,4 @@
-# OpenShift Examples - CI/CD Pipeline for JWS
+# OpenShift - CI/CD Pipeline for JWS/Tomcat
 OpenShift can be a useful aide in creating a Continuous Integration (CI) / Continuous Delivery (CD) pipeline.  CI/CD is all about creating a streamlined process to move from a developer's code change to delivered operations-ready software (i.e. ready to deploy to production).  And a key part of CI/CD is the automation to make the process predicatable, repeatable, and easy.
 
 This git repo contains an intentionally simple example of a software pipeline to deploy a webapp. And it showcases the tight intergration between Jenkins and OpenShift.  Namely the multiple plugins that enable shared auth, preform synchronization between Jenkins and OpenShift, and allow for steps to be written in a readable and comprehensive syntax.
