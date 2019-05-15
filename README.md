@@ -3,13 +3,11 @@ OpenShift can be a useful aide in creating a Continuous Integration (CI) / Conti
 
 This git repo contains an intentionally simple example of a software pipeline to deploy a webapp. And it showcases the tight intergration between Jenkins and OpenShift.  Namely the multiple plugins that enable shared auth, preform synchronization between Jenkins and OpenShift, and allow for steps to be written in a readable and comprehensive syntax.
 
-When you kickoff this example, the flow is as follows: perform pre-build -> do an app source code build + containerization -> do some automated testing -> deploy the app to the dev environment -> tag an image so that external image stream triggers can pull the image into a staging environment.  
+### > This example deploys a Java Web Application on [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
 
-This example was **changed** to use a Java Web App on [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
+![screenshot](./screenshots/pipeline.png)
 
-###### :information_source: This example is based on OpenShift Container Platform version 3.7.  It could work with older versions but has not been tested.
-###### :information_source: Also be aware that prior to OpenShift 3.7 the Jenkins plugins differed and the DSL has been evolving.
-
+![screenshot](./screenshots/app.png)
 
 ## Why pipelines?
 The most obvious benefits of CI/CD pipelines are:
@@ -22,7 +20,12 @@ The most obvious benefits of CI/CD pipelines are:
 ## How to put this in my cluster?
 First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free here: [https://developers.redhat.com/products/cdk/overview/][1]
 
-There is a script you can use for creating all the projects and required components for this example.
+Install the templates needed for [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
+
+> `ocp-install-templates.sh`
+
+Then use this script for creating all the projects and required pipeline components for this example.
+
 
  > `pipeline_setup.sh`
 
