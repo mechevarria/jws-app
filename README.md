@@ -3,7 +3,7 @@ OpenShift can be a useful aide in creating a Continuous Integration (CI) / Conti
 
 This git repo contains an intentionally simple example of a software pipeline to deploy a webapp. And it showcases the tight intergration between Jenkins and OpenShift.  Namely the multiple plugins that enable shared auth, preform synchronization between Jenkins and OpenShift, and allow for steps to be written in a readable and comprehensive syntax.
 
-### > This example deploys a Java Web Application on [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
+#### > This example deploys a Java Web Application on [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
 
 ![screenshot](./screenshots/pipeline.png)
 
@@ -18,7 +18,9 @@ The most obvious benefits of CI/CD pipelines are:
 
 
 ## How to put this in my cluster?
-First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free here: [https://developers.redhat.com/products/cdk/overview/][1]
+First off, you need access to an OpenShift cluster.  Don't have an OpenShift cluster?  That's OK, download the CDK for free [here](https://developers.redhat.com/products/cdk/download). The CDK can run on any linux distro, windows or mac. If you need additional documentation on the cdk, there is the upstream project, [minishift](https://www.okd.io/minishift/)
+
+##### > The CDK has Red Hat supported images and templates. Minishift does NOT
 
 Install the templates needed for [JBoss Web Server](https://www.redhat.com/en/technologies/jboss-middleware/web-server)/Apache Tomcat
 
