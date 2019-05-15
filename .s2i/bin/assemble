@@ -2,9 +2,12 @@
 
 /usr/local/s2i/assemble
 
-search="autoDeploy=\"false\""
-replace="autoDeploy=\"true\""
-server=${JWS_HOME}/conf/server.xml
+# search="autoDeploy=\"false\""
+# replace="autoDeploy=\"true\""
+# server=${JWS_HOME}/conf/server.xml
 
-echo "****** Replacing ${search} with ${replace} in ${server} ******"
-sed -i "s/${search}/${replace}/g" ${server}
+# echo "****** Replacing ${search} with ${replace} in ${server} ******"
+# sed -i "s/${search}/${replace}/g" ${server}
+
+# allow mvn tomcat plugin deployment
+cp /tmp/src/.s2i/bin/context.xml ${JWS_HOME}/webapps/manager/META-INF/context.xml
