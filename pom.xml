@@ -36,23 +36,18 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>ROOT</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <server>webserver50</server>
+                    <path>/${project.build.finalName}</path>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>openshift</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.6</version>
-                        <configuration>
-                            <outputDirectory>deployments</outputDirectory>
-                            <warName>ROOT</warName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
