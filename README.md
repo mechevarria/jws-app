@@ -30,7 +30,7 @@ Install the templates needed for [JBoss Web Server](https://www.redhat.com/en/te
 Then use this script for creating all the projects and required pipeline components for this example.
 
 
- > `pipeline_setup.sh`
+ > `pipeline-setup.sh`
 
 Because no other Jenkins server is already configured for use, OpenShift will actually create one for you.  And before starting the pipeline, wait until that jenkins server is ready.  You can see status in the webconsole or with `oc get pods`.
 
@@ -54,7 +54,7 @@ It will create the app in our pipeline-app project.  And once that succeeds and 
 * To run the built image with docker
 > `s2i-run.sh`
 
-* To deploy changes to the running container, have the following in **`~/.m2/settings.xml`**
+* To hot deploy changes to the running container, you will need a [JDK](https://openjdk.java.net/) and [Maven](https://maven.apache.org/download.cgi) with the following in **`~/.m2/settings.xml`**
 ~~~xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <settings>
