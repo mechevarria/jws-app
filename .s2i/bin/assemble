@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
 /usr/local/s2i/assemble
+rc=$?
 
-# allow mvn tomcat plugin deployment
-cp /tmp/src/.s2i/bin/context.xml ${JWS_HOME}/webapps/manager/META-INF/context.xml
+if [ $rc -eq 0 ]; then
+  echo "assemble success, running custom script"
+  # allow mvn tomcat plugin deployment
+  cp /tmp/src/.s2i/bin/context.xml ${JWS_HOME}/webapps/manager/META-INF/context.xml
+else
+  echo "assemble failed"
+fi
+
+exit $rc
