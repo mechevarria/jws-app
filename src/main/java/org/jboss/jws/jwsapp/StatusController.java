@@ -17,7 +17,7 @@ public class StatusController {
 	Logger log = Logger.getLogger(getClass().toString());
 
 	@GET
-	public HashMap<String, String> isUp(@DefaultValue("User") @QueryParam("name") String name) {
+	public HashMap<String, String> isUp(@QueryParam("name") String name) {
 
 		log.info("****** Calling StatusService ******");
 		return StatusService.isUp(name);
