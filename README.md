@@ -37,11 +37,35 @@ But we need to do one more thing because of a current limitation with the sync p
        Goto: Manage Jenkins -> Configure System -> OpenShift Jenkins Sync -> Namespace 
        Add 'pipeline-app pipeline-app-staging' to the list"
 
-OK, now we can kick off a new pipeline build via the the web console or with the CLI:
+OK, now we can kick off a new pipeline build via the the web console
 
-> `oc start-build -F openshiftexamples-cicdpipeline`
+It will create the app in our pipeline-app project.  And once that succeeds and rollsout it will prompt us for input to determine if everything looks good to move to staging.  **Yes** = rollout to staging, **No** = fail the pipeline.
 
-It will create the app in our pipeline-app project.  And once that succeeds and rollsout it will prompt us for input to determine if everything looks good to move to staging.  Yes = rollout to staging, No = fail the pipeline.
+## Editing the Application
+
+* To make edits to the application source, you will need [docker](https://www.docker.com/get-started) and [s2i](https://github.com/openshift/source-to-image) to run the same build process as on Openshift
+
+* To build a local docker image with the s2i wrapper
+> `s2i-build.sh`
+
+* To run the built image with docker
+> `s2i-run.sh`
+
+* To deploy changes to the running container, have the following in **`~/.m2/settings.xml`**
+~~~xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<settings>
+  <servers>
+    <server>
+      <id>webserver50</id>
+      <username>tomcat</username>
+      <password>tomcat</password>
+    </server>
+  </servers>
+</settings>
+~~~
+Then run this script to remote deploy to the running Tomcat server
+> `deploy.sh`
 
 
 ## About the code / software architecture
@@ -110,13 +134,3 @@ Let me know in the [github issues][https://github.com/dudash/openshiftexamples-c
 * [Fabric8][https://github.com/fabric8io/fabric8-pipeline-library]
 * [OpenShift.io][https://openshift.io]
 
-
-## License
-Under the terms of the MIT.
-
-
-[1]: https://developers.redhat.com/products/cdk/overview/
-[2]: https://docs.openshift.com/container-platform/3.7/using_images/other_images/jenkins.html#jenkins-as-s2i-builder
-[3]: https://docs.openshift.com/container-platform/3.7/dev_guide/builds/triggering_builds.html#image-change-triggers
-[4]: https://docs.openshift.com/container-platform/3.7/using_images/other_images/jenkins.html#using-the-jenkins-kubernetes-plug-in-to-run-jobs
-[5]: http://v1.uncontained.io/playbooks/continuous_delivery/external-jenkins-integration.html
