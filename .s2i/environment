@@ -1,1 +1,1 @@
-MAVEN_ARGS=-e -Popenshift -Dcom.redhat.xpaas.repo.redhatga package
+MAVEN_ARGS=-e -Dcom.redhat.xpaas.repo.redhatga package
