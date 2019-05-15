@@ -157,7 +157,6 @@ spec:
                                     echo "Staging doesn't exist - creating..."
                                     // create the app only when dc doesn't already exist
                                     // otherwise the image change tag will take care of rolling out updates
-                                    // openshift.newApp("openshift/jws31-tomcat8-basic-s2i")
                                     openshift.newApp("pipeline-app/${APPNAME}-staging:latest").narrow('svc').expose()
                                     // TODO hook up secrets
                                 }
