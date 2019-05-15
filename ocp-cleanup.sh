@@ -7,7 +7,7 @@ oc project pipeline-app
 oc delete all --selector app=jws50-tomcat9-basic-s2i
 oc delete is jws-app-staging
 
-oc scale --replicas=0 dc nexus
+# oc scale --replicas=0 dc nexus
 
 oc project cicd
-oc scale --replicas=0 dc jenkins
+# oc scale --replicas=0 dc jenkins
