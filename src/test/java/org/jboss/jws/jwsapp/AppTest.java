@@ -11,7 +11,7 @@ public class AppTest {
 
     @Test
     public void testRestStatus() {
-        HashMap<String, String> response = StatusService.isUp();
+        HashMap<String, String> response = StatusService.isUp("Test");
 
         assertEquals(2, response.size());
     }
