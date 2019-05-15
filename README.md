@@ -122,9 +122,9 @@ The Jenkins integration can come in a varitey of different flavors. See below fo
 * https://github.com/openshift/jenkins-client-plugin
 * https://blog.openshift.com/building-declarative-pipelines-openshift-dsl-plugin/
 * https://jenkins.io/doc/book/pipeline/syntax/#declarative-pipeline
-* https://docs.openshift.com/container-platform/3.7/using_images/other_images/jenkins.html
-* https://docs.openshift.com/container-platform/3.7/dev_guide/dev_tutorials/openshift_pipeline.html
-* https://docs.openshift.com/container-platform/3.7/install_config/configuring_pipeline_execution.html
+* https://docs.openshift.com/container-platform/3.11/using_images/other_images/jenkins.html
+* https://docs.openshift.com/container-platform/3.11/dev_guide/dev_tutorials/openshift_pipeline.html
+* https://docs.openshift.com/container-platform/3.11/install_config/configuring_pipeline_execution.html
 * https://github.com/OpenShiftDemos/openshift-cd-demo
 
 
