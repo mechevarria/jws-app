@@ -1,7 +1,12 @@
 $(document).ready(() => {
-    $('#check').click(() => {
+    $('#rest-form').submit(() => {
+        event.preventDefault();
+    });
 
-        $.getJSON('rest/status', data => {
+    $('#check').click(() => {
+        const name = $('#name').val();
+
+        $.getJSON('rest/status?name=' + name, data => {
             var json = JSON.stringify(data, null, 4);
 
             var previous = $('#output').val();
