@@ -10,7 +10,6 @@ class StatusService {
         HashMap<String, String> model = new HashMap<>();
 
         model.put("status", "Welcome " + name);
-        model.put("org", "FCC");
         model.put("time", LocalDateTime.now().toString());
 
         return model;
