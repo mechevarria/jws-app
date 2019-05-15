@@ -78,7 +78,7 @@ The parts in action here are:
 	- Includes the [OpenShift Jenkins client plugin](https://github.com/openshift/jenkins-client-plugin) (for newer OpenShift installs >= 3.7)
 	- Includes the [OpenShift Jenkins sync plugin](https://github.com/openshift/jenkins-sync-plugin)
 	- Includes the [OpenShift Jenkins auth plugin](https://github.com/openshift/jenkins-openshift-login-plugin) (for OpenShift >= 3.4)
-	- Includes the [OpenShift Jenkins plugin](https://github.com/openshift/jenkins-plugin) (for older OpenShift installs < 3.7)
+	- Includes the [OpenShift Jenkins plugin](https://github.com/openshift/jenkins-plugin)
 * OpenShift Jenkins [slave images](https://access.redhat.com/containers/#/search/jenkins%2520slave)
 * A Jenkinsfile (using OpenShift DSL)
 * Instant app template YAML file (to create/configure everything easily)
@@ -87,7 +87,7 @@ The parts in action here are:
 	- Integration with Jenkins
 	- Source code building via s2i
 	- Container building via BuildConfigs
-	- Deployments via [image change triggers][3]
+	- Deployments via image change triggers
 
 
 ## Other considerations
@@ -102,7 +102,6 @@ The Jenkins integration can come in a varitey of different flavors. See below fo
 	- via tagging images?
 	- via the OpenShift plugin copying/creating?
 * Can everyone do anything with Jenkins or will you define roles and SCC/RoleBindinds to restrict actions?
-* Will you use [slave builders][4]?
 * Where is the Jenkinsfile?
 	- in git - easy to manage independently
 	- embedded in an OpenShift BuildConfig template - doesn't require a git fetch, editable within OpenShift
@@ -113,7 +112,6 @@ The Jenkins integration can come in a varitey of different flavors. See below fo
 	- e.g. Service Now, JIRA Service Desk, etc.
 * Do you want to roll your own Jenkins image?
 	- The images that come with OpenShift are tested to work - if you roll your own to make sure any plugins used align with the platform version
-	- You can also [override the jenkins image with s2i][2]
 * Do you need to setenv vars for the pipeline
 * Coordinating individual microservice builds and running integration tests
 * Performing coverage tests
@@ -129,11 +127,4 @@ The Jenkins integration can come in a varitey of different flavors. See below fo
 * https://docs.openshift.com/container-platform/3.7/install_config/configuring_pipeline_execution.html
 * https://github.com/OpenShiftDemos/openshift-cd-demo
 
-
-## Advanced pipelines
-Let me know in the [github issues][https://github.com/dudash/openshiftexamples-cicdpipeline/issues] if you'd be interested in another example of advanced pipelines covering topics below.  And feel free to comment or suggest something else.
-* [Cross cluster image promotion][https://blog.openshift.com/cross-cluster-image-promotion-techniques/]
-* [BlueOcean][https://blog.openshift.com/openshift-pipelines-jenkins-blue-ocean/]
-* [Fabric8][https://github.com/fabric8io/fabric8-pipeline-library]
-* [OpenShift.io][https://openshift.io]
 
