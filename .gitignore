@@ -2,7 +2,6 @@
 *.swp
 *~
 node_modules
-lib
 .idea
 target
 *.iml
