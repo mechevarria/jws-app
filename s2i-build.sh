@@ -4,7 +4,7 @@
 
 source_location=.
 builder_image=jboss-webserver-5/webserver50-tomcat9-openshift
-tag=pipeline-app/jws-app
+tag=localhost/pipeline-app/jws-app
 flags="-c --incremental"
 
 s2i build ${source_location} ${builder_image} ${tag} ${flags}
