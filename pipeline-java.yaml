@@ -86,20 +86,6 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                stage('wait until running') {
-                    steps {
-                        script {
-                            openshift.withCluster() {
-                                openshift.withProject("pipeline-app") {
-                                    def rm = openshift.selector("dc", APPNAME).rollout()
-                                    openshift.selector("dc", APPNAME).related('pods').untilEach(1) {
-                                        return (it.object().status.phase == "Running")
-                                    }
-                                }
-                            }
-                        } // script
-                    } // steps
-                } // stage
                 stage('verify results') {
                     steps {
                         script {
@@ -110,6 +96,20 @@ spec:
                                         error('Stopping due to build and test error')
                                     } else {
                                         echo "All tests passed, verification complete"
+                                    }
+                                }
+                            }
+                        } // script
+                    } // steps
+                } // stage
+                stage('wait until running') {
+                    steps {
+                        script {
+                            openshift.withCluster() {
+                                openshift.withProject("pipeline-app") {
+                                    def rm = openshift.selector("dc", APPNAME).rollout()
+                                    openshift.selector("dc", APPNAME).related('pods').untilEach(1) {
+                                        return (it.object().status.phase == "Running")
                                     }
                                 }
                             }
